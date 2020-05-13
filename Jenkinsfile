@@ -6,8 +6,10 @@ pipeline {
     }
     stages {
         stage('Clean') {
-          withGradle {
-            sh './gradlew clean'
+          steps {
+            withGradle {
+                sh './gradlew clean'
+            }
           }
         }
         stage('Compiling') {
