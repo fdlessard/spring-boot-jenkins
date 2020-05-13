@@ -2,20 +2,31 @@ pipeline {
     agent any
     stages {
         stage('Clean') {
-          steps {
-            withGradle {
-                sh './gradlew clean'
+            steps {
+                withGradle {
+                    sh './gradlew clean'
+                }
             }
-          }
         }
         stage('Compiling') {
             steps {
-                echo 'Testing..'
+                withGradle {
+                    sh './gradlew integrationTestClasses'
+                }
             }
         }
-        stage('Test') {
+        stage('Unit Tests') {
             steps {
-                echo 'Deploying....'
+                withGradle {
+                    sh './gradlew test'
+                }
+            }
+        }
+        stage('Integration Tests') {
+            steps {
+                withGradle {
+                    sh './gradlew integrationTest'
+                }
             }
         }
     }
