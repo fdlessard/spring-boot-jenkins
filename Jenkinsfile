@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                gradle {
-                    tasks: 'clean'
-                }
+             sh 'gradle clean'
              }
         }
         stage('Compiling') {
