@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                echo 'Building..'
+                gradle clean
             }
         }
         stage('Compiling') {
