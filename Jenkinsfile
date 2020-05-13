@@ -29,5 +29,14 @@ pipeline {
                 }
             }
         }
+        stage('Code Coverage') {
+            steps {
+                withGradle {
+                    sh './gradlew jacocoTestCoverageVerification'
+            }
+         }
+     }
+
+
     }
 }
