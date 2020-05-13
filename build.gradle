@@ -55,7 +55,7 @@ jacocoTestCoverageVerification {
             limit {
                 counter = 'INSTRUCTION'
                 value = 'COVEREDRATIO'
-                minimum = 0.15
+                minimum = 0.10
             }
             limit {
                 counter = 'LINE'
@@ -65,7 +65,7 @@ jacocoTestCoverageVerification {
             limit {
                 counter = 'METHOD'
                 value = 'COVEREDRATIO'
-                minimum = 0.25
+                minimum = 0.20
             }
             limit {
                 counter = 'CLASS'
@@ -80,7 +80,7 @@ jacocoTestCoverageVerification {
             limit {
                 counter = 'COMPLEXITY'
                 value = 'COVEREDRATIO'
-                minimum = 0.20
+                minimum = 0.11
             }
         }
     }
