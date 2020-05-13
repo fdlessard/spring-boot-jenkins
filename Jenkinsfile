@@ -1,11 +1,14 @@
 pipeline {
     agent any
-
+    tools {
+       maven 'Gradle 6.3'
+       jdk 'jdk11'
+    }
     stages {
         stage('Clean') {
-            steps {
-             sh 'gradle clean'
-             }
+          withGradle {
+            sh './gradlew clean'
+          }
         }
         stage('Compiling') {
             steps {
