@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-       maven 'Gradle 6.3'
+       gradle 'Gradle 6.3'
        jdk 'jdk11'
     }
     stages {
