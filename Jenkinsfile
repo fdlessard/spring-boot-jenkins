@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    tools {
-       gradle 'Gradle 6.3'
-       jdk 'jdk11'
-    }
     stages {
         stage('Clean') {
           steps {
