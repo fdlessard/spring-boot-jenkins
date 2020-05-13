@@ -1,4 +1,4 @@
-package io.fdlessard.codebites.demo;
+package io.fdlessard.codebites.jenkins;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

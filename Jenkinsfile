@@ -37,9 +37,10 @@ pipeline {
             }
         }
     }
-        post {
-            always {
-                junit '**/test-results/test/*.xml'
-            }
+    post {
+        always {
+            junit '**/test-results/test/*.xml'
+            junit '**/test-results/integrationTest/*.xml'
         }
+    }
 }

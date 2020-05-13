@@ -1,4 +1,4 @@
-package io.fdlessard.codebites.demo;
+package io.fdlessard.codebites.jenkins;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
