@@ -43,10 +43,10 @@ pipeline {
             junit '**/test-results/integrationTest/*.xml'
             step([
                   $class           : 'JacocoPublisher',
-                  execPattern      : 'build/jacoco/test.exec',
-                  classPattern     : 'build/classes/main',
-                  sourcePattern    : 'src/main/java',
-                  exclusionPattern : '**/*Test.class'
+                  execPattern: '**/build/jacoco/*.exec',
+                  classPattern: '**/build/classes',
+                  sourcePattern: 'src/main/java',
+                  exclusionPattern: 'src/test*'
             ])
         }
     }
