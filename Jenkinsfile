@@ -40,6 +40,7 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew checkstyleMain'
+                    recordIssues(tools: [checkStyle(reportEncoding: 'UTF-8')])
                 }
             }
         }
