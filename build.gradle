@@ -62,6 +62,7 @@ jacoco {
 
 spotbugs {
     toolVersion = spotBugsToolVersion
+    effort = 'max'
 }
 
 pmd {
