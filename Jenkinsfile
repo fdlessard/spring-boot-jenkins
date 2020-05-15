@@ -40,11 +40,9 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew checkstyleMain'
-                    recordIssues(tools: [checkStyle(reportEncoding: 'UTF-8')])
-                    //sh './gradlew spotbugsMain'
-                    //recordIssues(tools: [spotBugs(reportEncoding: 'UTF-8')])
                     //sh './gradlew pmdMain'
                     //recordIssues(tools: [pmd()])
+                    sh './gradlew spotbugsMain'
                     sh './gradlew dependencyCheckAnalyze'
                     //recordIssues(tools: [dependencyCheck()])
                 }
@@ -62,7 +60,9 @@ pipeline {
                   sourcePattern: 'src/main/java',
                   exclusionPattern: 'src/test*'
             ])
+            recordIssues enabledForFailure: false, tools: [checkStyle(reportEncoding: 'UTF-8']
             recordIssues enabledForFailure: false, tools: [spotBugs()]
+            recordIssues enabledForFailure: false, tools: [dependencyCheck()]
         }
     }
 }
