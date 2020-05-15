@@ -67,7 +67,10 @@ pmd {
     toolVersion = pmdToolVersion
     consoleOutput = true
     ignoreFailures = true
-    pmdTest.enabled=false
+    pmdTest.enabled = false
+    incrementalAnalysis = true
+    ruleSetFiles 'config/pmd.xml'
+    ruleSets = []
 }
 
 pmdMain {
