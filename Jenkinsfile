@@ -36,7 +36,7 @@ pipeline {
                 }
             }
         }
-        stage('Checkstyle') {
+        stage('Static Code Analysis') {
             steps {
                 withGradle {
                     sh './gradlew checkstyleMain'
@@ -45,6 +45,8 @@ pipeline {
                     recordIssues(tools: [spotBugs(reportEncoding: 'UTF-8')])
                     sh './gradlew pmdMain'
                     recordIssues(tools: [pmd()])
+                    sh './gradlew dependencyCheckAnalyse'
+                    recordIssues(tools: [dependencyCheck()])
                 }
             }
         }
@@ -54,7 +56,7 @@ pipeline {
             junit '**/test-results/test/*.xml'
             junit '**/test-results/integrationTest/*.xml'
             step([
-                  $class           : 'JacocoPublisher',
+                  $class: 'JacocoPublisher',
                   execPattern: '**/build/jacoco/*.exec',
                   classPattern: '**/build/classes',
                   sourcePattern: 'src/main/java',

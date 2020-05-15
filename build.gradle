@@ -2,10 +2,11 @@ plugins {
     id 'org.springframework.boot' version '2.2.7.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
-    id 'idea'    // optional, for IntelliJ IDEA project
+    id 'idea'
     id 'jacoco'
     id 'checkstyle'
     id "com.github.spotbugs" version "4.2.0"
+    id 'org.owasp.dependencycheck' version '5.3.2.1'
     id 'pmd'
 }
 
@@ -69,8 +70,6 @@ pmd {
     ignoreFailures = true
     pmdTest.enabled = false
     incrementalAnalysis = true
-    ruleSetFiles 'config/pmd.xml'
-    ruleSets = []
 }
 
 pmdMain {
@@ -78,6 +77,13 @@ pmdMain {
         xml.enabled true
         html.enabled true
     }
+}
+
+dependencyCheck {
+    failOnError = false
+    format = 'ALL'
+    // bug ... outputDirectory not working now
+    //outputDirectory = "build/reports/dependency-check"
 }
 
 jacocoTestCoverageVerification {
