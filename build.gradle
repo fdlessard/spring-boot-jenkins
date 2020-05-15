@@ -5,7 +5,8 @@ plugins {
     id 'idea'    // optional, for IntelliJ IDEA project
     id 'jacoco'
     id 'checkstyle'
-//    id 'pmd'
+    id "com.github.spotbugs" version "4.2.0"
+    id 'pmd'
 }
 
 group = 'io.fdlessard.codebites'
@@ -49,6 +50,15 @@ checkstyle {
 
 jacoco {
     toolVersion = "0.8.5"
+}
+
+spotbugs {
+    toolVersion = '4.0.3'
+}
+
+pmd {
+    consoleOutput = true
+    ignoreFailures = true
 }
 
 jacocoTestCoverageVerification {
