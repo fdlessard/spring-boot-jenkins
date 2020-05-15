@@ -60,7 +60,7 @@ pipeline {
             ])
             recordIssues enabledForFailure: false, tools: [checkStyle(reportEncoding: 'UTF-8')]
             //recordIssues enabledForFailure: false, tools: [pmd()]
-            recordIssues enabledForFailure: false, tools: [spotBugs(pattern: '**/target/spotbugsXml.xml')]
+            recordIssues enabledForFailure: false, tools: [spotBugs(pattern: 'build/reports/spotbugs/main.xml')]
             //recordIssues enabledForFailure: false, tools: [dependencyCheck()]
         }
     }
