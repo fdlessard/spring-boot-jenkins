@@ -43,8 +43,8 @@ pipeline {
                     recordIssues(tools: [checkStyle(reportEncoding: 'UTF-8')])
                     sh './gradlew spotbugsMain'
                     recordIssues(tools: [spotBugs(reportEncoding: 'UTF-8')])
-                    sh './gradlew pmdMain'
-                    recordIssues(tools: [pmd()])
+                    //sh './gradlew pmdMain'
+                    //recordIssues(tools: [pmd()])
                     sh './gradlew dependencyCheckAnalyse'
                     recordIssues(tools: [dependencyCheck()])
                 }
