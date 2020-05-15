@@ -60,7 +60,7 @@ pipeline {
                   sourcePattern: 'src/main/java',
                   exclusionPattern: 'src/test*'
             ])
-            recordIssues enabledForFailure: false, tools: [checkStyle(reportEncoding: 'UTF-8']
+            recordIssues enabledForFailure: false, tools: [checkStyle(reportEncoding: 'UTF-8')]
             recordIssues enabledForFailure: false, tools: [spotBugs()]
             recordIssues enabledForFailure: false, tools: [dependencyCheck()]
         }
