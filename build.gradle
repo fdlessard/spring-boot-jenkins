@@ -4,7 +4,7 @@ plugins {
     id 'java'
     id 'idea'    // optional, for IntelliJ IDEA project
     id 'jacoco'
-//    id 'checkstyle'
+    id 'checkstyle'
 //    id 'pmd'
 }
 
@@ -40,6 +40,11 @@ dependencies {
     }
     testImplementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.security:spring-security-test'
+}
+
+checkstyle {
+    toolVersion '8.23'
+    configFile = 'code-styles/google-checkstyle.xml' as File
 }
 
 jacoco {

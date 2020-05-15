@@ -36,6 +36,13 @@ pipeline {
                 }
             }
         }
+        stage('Checkstyle') {
+            steps {
+                withGradle {
+                    sh './gradlew checkstyleMain'
+                }
+            }
+        }
     }
     post {
         always {
