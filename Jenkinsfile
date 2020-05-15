@@ -62,8 +62,7 @@ pipeline {
                   sourcePattern: 'src/main/java',
                   exclusionPattern: 'src/test*'
             ])
-            recordIssues enabledForFailure: false, tool: spotBugs()
-
+            recordIssues enabledForFailure: false, tools: spotBugs()
         }
     }
 }
