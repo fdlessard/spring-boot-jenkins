@@ -42,11 +42,11 @@ pipeline {
                     sh './gradlew checkstyleMain'
                     recordIssues(tools: [checkStyle(reportEncoding: 'UTF-8')])
                     sh './gradlew spotbugsMain'
-                    recordIssues(tools: [spotBugs(reportEncoding: 'UTF-8')])
+                    //recordIssues(tools: [spotBugs(reportEncoding: 'UTF-8')])
                     //sh './gradlew pmdMain'
                     //recordIssues(tools: [pmd()])
                     sh './gradlew dependencyCheckAnalyze'
-                    recordIssues(tools: [dependencyCheck()])
+                    //recordIssues(tools: [dependencyCheck()])
                 }
             }
         }
