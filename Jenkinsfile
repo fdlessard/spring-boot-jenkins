@@ -61,7 +61,7 @@ pipeline {
             recordIssues enabledForFailure: false, tools: [checkStyle(reportEncoding: 'UTF-8')]
             recordIssues enabledForFailure: false, tools: [spotBugs(pattern: 'build/reports/spotbugs/*.xml')]
             recordIssues enabledForFailure: false, tools: [pmdParser(pattern: 'build/reports/pmd/*.xml')]
-            recordIssues enabledForFailure: false, tools: [dependencyCheckPublisher(pattern: 'build/reports/*.xml')]
+            recordIssues enabledForFailure: false, tools: [dependencyCheckPublisher(pattern: 'build/reports/dependency-check-report.xml')]
         }
     }
 }
