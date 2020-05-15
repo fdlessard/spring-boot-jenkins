@@ -40,7 +40,7 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew checkstyleMain'
-                    //sh './gradlew pmdMain'
+                    sh './gradlew pmdMain'
                     //recordIssues(tools: [pmd()])
                     sh './gradlew spotbugsMain'
                     sh './gradlew dependencyCheckAnalyze'
@@ -61,8 +61,9 @@ pipeline {
                   exclusionPattern: 'src/test*'
             ])
             recordIssues enabledForFailure: false, tools: [checkStyle(reportEncoding: 'UTF-8')]
+            recordIssues enabledForFailure: false, tools: [pmd()]
             recordIssues enabledForFailure: false, tools: [spotBugs()]
-            recordIssues enabledForFailure: false, tools: [dependencyCheck()]
+            //recordIssues enabledForFailure: false, tools: [dependencyCheck()]
         }
     }
 }
