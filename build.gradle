@@ -15,6 +15,13 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 targetCompatibility = '11'
 
+ext {
+    checkstyleToolVersion  = '8.23'
+    jacocoToolVersion = "0.8.5"
+    pmdToolVersion = '6.23.0'
+    spotBugsToolVersion = '4.0.3'
+}
+
 configurations {
     developmentOnly
     runtimeClasspath {
@@ -44,21 +51,30 @@ dependencies {
 }
 
 checkstyle {
-    toolVersion '8.23'
+    toolVersion checkstyleToolVersion
     configFile = 'code-styles/google-checkstyle.xml' as File
 }
 
 jacoco {
-    toolVersion = "0.8.5"
+    toolVersion = jacocoToolVersion
 }
 
 spotbugs {
-    toolVersion = '4.0.3'
+    toolVersion = spotBugsToolVersion
 }
 
 pmd {
+    toolVersion = pmdToolVersion
     consoleOutput = true
     ignoreFailures = true
+    pmdTest.enabled=false
+}
+
+pmdMain {
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
 }
 
 jacocoTestCoverageVerification {
