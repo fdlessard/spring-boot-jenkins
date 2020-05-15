@@ -40,9 +40,11 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew checkstyleMain'
-                    sh './gradlew spotbugsMain'
-                    sh './gradlew pmdMain'
                     recordIssues(tools: [checkStyle(reportEncoding: 'UTF-8')])
+                    sh './gradlew spotbugsMain'
+                    recordIssues(tools: [spotbugs(reportEncoding: 'UTF-8')])
+                    sh './gradlew pmdMain'
+                    recordIssues(tools: [pmd(reportEncoding: 'UTF-8')])
                 }
             }
         }
