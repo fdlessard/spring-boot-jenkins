@@ -6,8 +6,9 @@ plugins {
     id 'jacoco'
     id 'checkstyle'
     id "com.github.spotbugs" version "4.2.0"
-    id 'org.owasp.dependencycheck' version '5.3.2.1'
     id 'pmd'
+    id "org.myire.quill.cpd" version "2.3.1"
+    id 'org.owasp.dependencycheck' version '5.3.2.1'
 }
 
 group = 'io.fdlessard.codebites'
@@ -20,6 +21,7 @@ ext {
     checkstyleToolVersion  = '8.23'
     jacocoToolVersion = "0.8.5"
     pmdToolVersion = '6.23.0'
+    cpdToolVersion = '6.0.0'
     spotBugsToolVersion = '4.0.3'
 }
 
@@ -80,7 +82,14 @@ pmdMain {
     }
 }
 
+cpd {
+    language = 'java'
+  //  toolVersion = cpdToolVersion
+    minimumTokenCount = 100 // approximately 5-10 lines
+}
+
 dependencyCheck {
+    autoUpdate = true
     failOnError = false
     formats = ['XML', 'HTML']
     // bug ... outputDirectory not working now
