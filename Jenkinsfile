@@ -54,13 +54,6 @@ pipeline {
                   }
                   stage('Cpd') {
                     steps {
-                        withGradle {
-                            sh './gradlew cpd'
-                        }
-                     }
-                  }
-                  stage('Cpd') {
-                    steps {
                          withGradle {
                             sh './gradlew cpd'
                          }
@@ -73,7 +66,7 @@ pipeline {
                          }
                     }
                   }
-                  stage('Spotbugs') {
+                  stage('Owasp') {
                     steps {
                          withGradle {
                             sh './gradlew dependencyCheckAnalyze'
