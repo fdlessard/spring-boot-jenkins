@@ -37,51 +37,14 @@ pipeline {
             }
         }
         stage('Static Code Analysis') {
-            parallel {
-                  stage('Checkstyle') {
-                    steps {
-                        withGradle {
-                            sh './gradlew checkstyleMain'
-                        }
-                     }
-                  }
-                  stage('Pmd') {
-                    steps {
-                        withGradle {
-                            sh './gradlew pmdMain'
-                        }
-                    }
-                  }
-                  stage('Cpd') {
-                    steps {
-                         withGradle {
-                            sh './gradlew cpd'
-                         }
-                    }
-                  }
-                  stage('Spotbugs') {
-                    steps {
-                         withGradle {
-                            sh './gradlew spotbugsMain'
-                         }
-                    }
-                  }
-                  stage('Owasp') {
-                    steps {
-                         withGradle {
-                            sh './gradlew dependencyCheckAnalyze'
-                         }
-                    }
-                  }
-/*                   steps {
-                    withGradle {
-                        sh './gradlew checkstyleMain'
-                        sh './gradlew pmdMain'
-                        sh './gradlew cpd'
-                        sh './gradlew spotbugsMain'
-                        sh './gradlew dependencyCheckAnalyze'
-                    }
-                } */
+            steps {
+                withGradle {
+                    sh './gradlew checkstyleMain'
+                    sh './gradlew pmdMain'
+                    sh './gradlew cpd'
+                    sh './gradlew spotbugsMain'
+                    sh './gradlew dependencyCheckAnalyze'
+                }
             }
         }
     }
