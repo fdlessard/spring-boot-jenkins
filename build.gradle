@@ -82,7 +82,7 @@ pmdMain {
 
 dependencyCheck {
     failOnError = false
-    format = 'ALL'
+    formats = ['XML', 'HTML']
     // bug ... outputDirectory not working now
     //outputDirectory = "build/reports/dependency-check"
 }
