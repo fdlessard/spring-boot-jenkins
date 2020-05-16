@@ -58,7 +58,7 @@ pipeline {
                   sourcePattern: 'src/main/java',
                   exclusionPattern: 'src/test*'
             ]) */
-            recordIssues enabledForFailure: false, tools: [JacocoPublisher(reportEncoding: 'UTF-8')]
+            recordIssues enabledForFailure: false, tools: [jacocoPublisher()]
             recordIssues enabledForFailure: false, tools: [checkStyle(reportEncoding: 'UTF-8')]
             recordIssues enabledForFailure: false, tools: [spotBugs(pattern: 'build/reports/spotbugs/*.xml')]
             recordIssues enabledForFailure: false, tools: [pmdParser(pattern: 'build/reports/pmd/*.xml')]
