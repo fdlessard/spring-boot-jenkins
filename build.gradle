@@ -92,6 +92,9 @@ dependencyCheck {
     autoUpdate = true
     failOnError = false
     formats = ['XML', 'HTML']
+    analyzers {
+        assemblyEnabled = false
+    }
     // bug ... outputDirectory not working now
     //outputDirectory = "build/reports/dependency-check"
 }
