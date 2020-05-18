@@ -64,7 +64,7 @@ pipeline {
                 pmdParser(pattern: 'build/reports/pmd/*.xml'),
                 cpd(pattern: 'build/reports/cpd/*.xml'),
                 spotBugs(pattern: 'build/reports/spotbugs/*.xml'),
-                dependencyCheckPublisher(pattern: 'build/reports/dependency-check-report.xml'')
+                dependencyCheckPublisher(pattern: 'build/reports/dependency-check-report.xml')
             ]
         }
     }
