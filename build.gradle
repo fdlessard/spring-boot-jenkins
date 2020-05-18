@@ -8,6 +8,7 @@ plugins {
     id 'com.github.spotbugs' version '4.2.0'
     id 'pmd'
     id 'org.myire.quill.cpd' version '2.3.1'
+    id "org.sonarqube" version "2.8"
     id 'org.owasp.dependencycheck' version '5.3.2.1'
 }
 
@@ -86,6 +87,15 @@ cpd {
     language = 'java'
   //  toolVersion = cpdToolVersion
     minimumTokenCount = 100 // approximately 5-10 lines
+}
+
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.projectKey", "spring-boot-jenkins"
+        property "sonar.login", "16eab70f0895ee38638ed426c324b9fe6601ebc3"
+    }
 }
 
 dependencyCheck {

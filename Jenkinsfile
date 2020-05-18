@@ -43,6 +43,7 @@ pipeline {
                     sh './gradlew pmdMain'
                     sh './gradlew cpd'
                     sh './gradlew spotbugsMain'
+                    sh './gradlew sonarqube'
                     sh './gradlew dependencyCheckAnalyze'
                 }
             }
