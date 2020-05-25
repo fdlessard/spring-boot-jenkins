@@ -43,8 +43,8 @@ pipeline {
                     sh './gradlew pmdMain'
                     sh './gradlew cpd'
                     sh './gradlew spotbugsMain'
-                    sh './gradlew sonarqube'
-                    sh './gradlew dependencyCheckAnalyze'
+        //           sh './gradlew sonarqube'
+        //            sh './gradlew dependencyCheckAnalyze'
                 }
             }
         }
@@ -65,7 +65,7 @@ pipeline {
                 pmdParser(pattern: 'build/reports/pmd *//*.xml'),
                 cpd(pattern: 'build/reports/cpd *//*.xml'),
                 spotBugs(pattern: 'build/reports/spotbugs *//*.xml'), */
-                dependencyCheckPublisher(pattern: 'build/reports/dependency-check-report.xml')
+     //           dependencyCheckPublisher(pattern: 'build/reports/dependency-check-report.xml')
             ]
         }
     }
