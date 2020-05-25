@@ -19,7 +19,7 @@ sourceCompatibility = '11'
 targetCompatibility = '11'
 
 ext {
-    checkstyleToolVersion  = '8.23'
+    checkstyleToolVersion  = '8.32'
     jacocoToolVersion = "0.8.5"
     pmdToolVersion = '6.23.0'
     cpdToolVersion = '6.0.0'
