@@ -61,10 +61,10 @@ pipeline {
                   exclusionPattern: 'src/test*'
             ])
             recordIssues enabledForFailure: false, tools: [
-                checkStyle(pattern: './build/reports/checkstyle/*.xml'),
-                pmdParser(pattern: './build/reports/pmd/*.xml'),
-                cpd(pattern: './build/reports/cpd/*.xml'),
-                spotBugs(pattern: './build/reports/spotbugs/*.xml')
+                checkStyle(pattern: '**/checkstyle/*.xml'),
+                pmdParser(pattern: '.**/pmd/*.xml'),
+                cpd(pattern: '**/cpd/*.xml'),
+                spotBugs(pattern: '**/spotbugs/*.xml')
      //           dependencyCheckPublisher(pattern: 'build/reports/dependency-check-report.xml')
             ]
         }
